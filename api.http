@@ -1,0 +1,32 @@
+### Retrieve all movies
+GET  http://localhost:5000/api/v1/movies
+### Retrieve  a specific movie by its ID
+GET  http://localhost:5000/api/v1/movies/b16638a9-3278-420b-8b08-1886742aac33
+### Retrieve all movies by specific genre
+GET  http://localhost:5000/api/v1/movies?genre=History
+
+### Create  a new movie
+POST   http://localhost:5000/api/v1/movies
+content-type: application/json
+
+{
+  "title": "Inception",
+  "year": 2010,
+  "director": "Christopher Nolan",
+  "duration": 148,
+  "poster": "https://i.pinimg.com/564x/c3/98/29/c39829b4176947dc7e903c696f2ca990.jpg",
+  "genre": ["Action", "Adventure", "Sci-Fi"],
+  "rate": 8.8
+}
+
+
+### Update a specific movie by  its ID
+PATCH  http://localhost:5000/api/v1/movies/c3f85365-c037-48d5-95d2-6b01ec4b49a0
+content-type: application/json
+
+{
+  "rate": 9.5
+}
+
+### Delete  a specific movie by its ID
+DELETE  http://localhost:5000/api/v1/movies/c3f85365-c037-48d5-95d2-6b01ec4b49a0
