@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { create, getAll, getById, remove, update } from '../../controllers'
-import { confirmIsValidId, validationBody, validationPartialBody } from '../../middlewares/'
+import { create, getAll, getById, remove, update } from '../controllers/index.js'
+import { confirmIsValidId, validationBody, validationPartialBody } from '../middlewares/index.js'
 
 const router: Router = Router()
 

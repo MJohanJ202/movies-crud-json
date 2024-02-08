@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { validateId, validatePostMovie, validateUpdateMovie } from '../../schemas/'
+import { validateId, validatePostMovie, validateUpdateMovie } from '../../schemas/index.js'
 
 function confirmIsValidId(req: Request, res: Response, next: NextFunction) {
   const result = validateId(req.params['id'])

@@ -1,6 +1,6 @@
 import express, { Application } from "express"
-import { handleCors } from './middlewares/'
-import apiRoutes from "./routes"
+import { handleCors } from './middlewares/index.js'
+import apiRoutes from "./routes/index.js"
 
 const app: Application = express()
 

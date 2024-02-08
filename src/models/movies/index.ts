@@ -1,5 +1,5 @@
-import { dtoCreateMovie, dtoUpdateMovie, movie, uuid } from '../../consts'
-import { movies, writeMoviesFile } from '../../database'
+import { dtoCreateMovie, dtoUpdateMovie, movie, uuid } from '../../consts.js'
+import { movies, writeMoviesFile } from '../../database/index.js'
 
 export class ModelMovies {
 

@@ -5,11 +5,11 @@
   "main": "src/main.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc build",
+    "build:ts": "tsc --build tsconfig.json",
     "watch": "tsc --watch src/main.ts",
     "start:dev": "node --env-file=.env && --watch dist/main.js",
     "dev": "bun --env-file=.env && bun run --watch src/main.ts",
-    "start": "build && node --env-file=.env dist/main.js"
+    "start": "npm run build:ts && cp src/database/movies-db-json/movies.json ./dist/database/movies-db-json && node --env-file=.env dist/main.js"
   },
   "keywords": [],
   "author": "J@mj002",

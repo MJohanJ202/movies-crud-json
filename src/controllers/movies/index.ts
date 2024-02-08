@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { uuid } from '../../consts'
-import { models } from '../../models'
+import { uuid } from '../../consts.js'
+import { models } from '../../models/index.js'
 
 const moviesModel = models.movies
 

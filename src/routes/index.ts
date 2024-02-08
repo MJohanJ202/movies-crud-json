@@ -1,9 +1,10 @@
 import { Router } from 'express'
 import { readdir } from "node:fs"
+import { getDirname } from './../utils/module.js'
 
 const router: Router = Router()
-
-readdir(__dirname, { encoding: 'utf-8' }, (err, files) => {
+const dirname = getDirname(import.meta.url)
+readdir(dirname, { encoding: 'utf-8' }, (err, files) => {
   if (err) return router.use('/404')
 
   const excludePathName = 'index'
@@ -13,14 +14,13 @@ readdir(__dirname, { encoding: 'utf-8' }, (err, files) => {
   }
 
   const addRoutes = async (endPoint: string) => {
-    // dynamic import router
-    const endPointModuleRoute = await import(`${__dirname}/${endPoint}`)
-    const endPointRoutes = endPointModuleRoute.default
-    router.use(`/${endPoint}`, endPointRoutes) // TODO-- > http://localhost:1234/notes 
+    const module = await import(`./${endPoint}.js`)
+    const endPointRouter = module.default
+    router.use(`/${endPoint}`, endPointRouter) // TODO-- > http://localhost:1234/notes 
   }
 
   files.map(clearPathName)
-    .filter(path => path !== excludePathName)
+    .filter(path => !path.includes(excludePathName))
     .forEach(addRoutes)
 
   return null

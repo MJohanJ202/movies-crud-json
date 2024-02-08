@@ -1,3 +1,3 @@
-export { handleCors } from './cors'
-export { confirmIsValidId, validationBody, validationPartialBody } from './movies'
+export { handleCors } from './cors.js'
+export { confirmIsValidId, validationBody, validationPartialBody } from './movies/index.js'
 
